@@ -20,7 +20,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-rootProject.name = "AppLanguage"
+rootProject.name = "BuildFlavors"
 include(":app")
