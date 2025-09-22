@@ -20,6 +20,13 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "BuildFlavors"
-include(":app")
+include(
+    ":app",
+    ":platform-services:gms",
+    ":platform-services:hms",
+    ":platform-services:foss",
+    ":platform-services:inject",
+    ":platform-services:interactor"
+)

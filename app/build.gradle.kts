@@ -54,13 +54,34 @@ android {
     buildFeatures {
         compose = true
     }
+
+    flavorDimensions += "version"
+    productFlavors {
+        create("gms") {
+            dimension = "version"
+            isDefault = true
+        }
+        create("hms") {
+            dimension = "version"
+        }
+        create("foss") {
+            dimension = "version"
+        }
+    }
 }
 
 base {
     archivesName.set("BuildFlavors-v${android.defaultConfig.versionName}(${android.defaultConfig.versionCode})")
 }
 
+val gmsImplementation by configurations
+val hmsImplementation by configurations
+val fossImplementation by configurations
 dependencies {
+    gmsImplementation(projects.platformServices.inject)
+    hmsImplementation(projects.platformServices.inject)
+    fossImplementation(projects.platformServices.inject)
+
     api(libs.google.material)
     api(libs.androidx.activity.compose)
     api(libs.androidx.compose.material3)
