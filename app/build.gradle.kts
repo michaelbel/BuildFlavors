@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.ksp)
+    alias(libs.plugins.google.hilt)
 }
 
 private val gitCommitsCount: Int by lazy {
@@ -81,12 +83,15 @@ dependencies {
     gmsImplementation(projects.platformServices.inject)
     hmsImplementation(projects.platformServices.inject)
     fossImplementation(projects.platformServices.inject)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.google.hilt.android)
+    ksp(libs.google.hilt.compiler)
 
-    api(libs.google.material)
-    api(libs.androidx.activity.compose)
-    api(libs.androidx.compose.material3)
-    api(libs.androidx.compose.ui.tooling)
-    api(libs.androidx.core.splashscreen)
+    implementation(libs.google.material)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.ui.tooling)
 }
 
 tasks.register("printVersion") {

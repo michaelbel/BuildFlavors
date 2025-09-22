@@ -1,6 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.ksp)
+    alias(libs.plugins.google.hilt)
+}
+
+kotlin {
+    jvmToolchain(libs.versions.jdk.get().toInt())
 }
 
 android {
@@ -33,4 +39,7 @@ dependencies {
     gmsImplementation(projects.platformServices.gms)
     hmsImplementation(projects.platformServices.hms)
     fossImplementation(projects.platformServices.foss)
+    api(projects.platformServices.interactor)
+    implementation(libs.google.hilt.android)
+    ksp(libs.google.hilt.compiler)
 }

@@ -3,6 +3,10 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
+kotlin {
+    jvmToolchain(libs.versions.jdk.get().toInt())
+}
+
 android {
     namespace = "org.michaelbel.platform.gms"
     compileSdk = libs.versions.compile.sdk.get().toInt()
@@ -14,4 +18,5 @@ android {
 
 dependencies {
     implementation(projects.platformServices.interactor)
+    implementation(libs.google.hilt.android)
 }
