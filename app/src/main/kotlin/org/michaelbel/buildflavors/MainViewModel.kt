@@ -1,4 +1,4 @@
-package org.michaelbel.applanguage
+package org.michaelbel.buildflavors
 
 import androidx.lifecycle.ViewModel
 

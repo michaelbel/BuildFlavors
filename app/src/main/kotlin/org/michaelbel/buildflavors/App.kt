@@ -1,4 +1,4 @@
-package org.michaelbel.applanguage
+package org.michaelbel.buildflavors
 
 import android.app.Application
 

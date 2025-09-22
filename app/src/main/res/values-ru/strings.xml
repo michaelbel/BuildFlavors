@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">App Language</string>
-    <string name="title_language">Язык</string>
-    <string name="greeting">Привет</string>
-</resources>

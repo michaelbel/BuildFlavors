@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package org.michaelbel.applanguage
+package org.michaelbel.buildflavors
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -20,7 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import org.michaelbel.applanguage.ui.AppTheme
+import org.michaelbel.buildflavors.ui.AppTheme
 
 class MainActivity: ComponentActivity() {
 
@@ -38,7 +38,7 @@ class MainActivity: ComponentActivity() {
                         TopAppBar(
                             title = {
                                 Text(
-                                    text = stringResource(R.string.title_language)
+                                    text = stringResource(R.string.app_name)
                                 )
                             }
                         )
@@ -53,7 +53,7 @@ class MainActivity: ComponentActivity() {
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = stringResource(R.string.greeting)
+                            text = stringResource(R.string.app_name)
                         )
                     }
                 }

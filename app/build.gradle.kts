@@ -25,15 +25,30 @@ kotlin {
 }
 
 android {
-    namespace = "org.michaelbel.applanguage"
+    namespace = "org.michaelbel.buildflavors"
     compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {
-        applicationId = "org.michaelbel.applanguage"
+        applicationId = "org.michaelbel.buildflavors"
         minSdk = libs.versions.min.sdk.get().toInt()
         targetSdk = libs.versions.target.sdk.get().toInt()
         versionCode = gitCommitsCount
         versionName = "1.0.0"
+    }
+
+    signingConfigs {
+        getByName("debug") {
+            keyAlias = "buildflavors"
+            keyPassword = "password"
+            storeFile = rootProject.file(".github/debug-key.jks")
+            storePassword = "password"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
+        }
     }
 
     buildFeatures {
@@ -42,7 +57,7 @@ android {
 }
 
 base {
-    archivesName.set("AppLanguage-v${android.defaultConfig.versionName}(${android.defaultConfig.versionCode})")
+    archivesName.set("BuildFlavors-v${android.defaultConfig.versionName}(${android.defaultConfig.versionCode})")
 }
 
 dependencies {
@@ -53,5 +68,9 @@ dependencies {
     api(libs.androidx.core.splashscreen)
 }
 
-tasks.register("printVersionName") { doLast { println(android.defaultConfig.versionName) } }
-tasks.register("printVersionCode") { doLast { println(android.defaultConfig.versionCode.toString()) } }
+tasks.register("printVersion") {
+    doLast {
+        println("VERSION_NAME=${android.defaultConfig.versionName}")
+        println("VERSION_CODE=${android.defaultConfig.versionCode}")
+    }
+}
