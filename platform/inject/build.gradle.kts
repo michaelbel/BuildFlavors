@@ -35,7 +35,7 @@ dependencies {
     gmsImplementation(projects.platform.gms)
     hmsImplementation(projects.platform.hms)
     fossImplementation(projects.platform.foss)
-    api(projects.platform.interactor)
+    api(projects.platform.common)
     implementation(libs.google.hilt.android)
     ksp(libs.google.hilt.compiler)
 }

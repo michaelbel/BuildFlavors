@@ -13,5 +13,5 @@ android {
 }
 
 dependencies {
-    implementation(projects.platform.interactor)
+    implementation(projects.platform.common)
 }

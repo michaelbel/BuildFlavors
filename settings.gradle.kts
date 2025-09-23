@@ -37,5 +37,5 @@ include(
     ":platform:hms",
     ":platform:foss",
     ":platform:inject",
-    ":platform:interactor"
+    ":platform:common"
 )

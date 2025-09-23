@@ -13,6 +13,6 @@ android {
 }
 
 dependencies {
-    implementation(projects.platform.interactor)
+    implementation(projects.platform.common)
     implementation(libs.huawei.hianalytics)
 }
