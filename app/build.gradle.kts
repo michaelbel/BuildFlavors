@@ -8,6 +8,17 @@ plugins {
     alias(libs.plugins.google.hilt)
 }
 
+if (isGmsBuild) {
+    plugins {
+        alias(libs.plugins.google.services)
+    }
+}
+if (isHmsBuild) {
+    plugins {
+        alias(libs.plugins.huawei.services)
+    }
+}
+
 private val gitCommitsCount: Int by lazy {
     try {
         val isWindows = System.getProperty("os.name").contains("Windows", ignoreCase = true)
@@ -57,17 +68,17 @@ android {
         compose = true
     }
 
-    flavorDimensions += "version"
+    flavorDimensions += "store"
     productFlavors {
         create("gms") {
-            dimension = "version"
+            dimension = "store"
             isDefault = true
         }
         create("hms") {
-            dimension = "version"
+            dimension = "store"
         }
         create("foss") {
-            dimension = "version"
+            dimension = "store"
         }
     }
 }
@@ -87,11 +98,9 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.google.hilt.android)
     ksp(libs.google.hilt.compiler)
-
     implementation(libs.google.material)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.ui.tooling)
 }
 
 tasks.register("printVersion") {

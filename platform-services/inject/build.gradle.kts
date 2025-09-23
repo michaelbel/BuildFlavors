@@ -13,21 +13,17 @@ android {
     namespace = "org.michaelbel.platform.inject"
     compileSdk = libs.versions.compile.sdk.get().toInt()
 
-    defaultConfig {
-        minSdk = libs.versions.min.sdk.get().toInt()
-    }
-
-    flavorDimensions += "version"
+    flavorDimensions += "store"
     productFlavors {
         create("gms") {
-            dimension = "version"
+            dimension = "store"
             isDefault = true
         }
         create("hms") {
-            dimension = "version"
+            dimension = "store"
         }
         create("foss") {
-            dimension = "version"
+            dimension = "store"
         }
     }
 }

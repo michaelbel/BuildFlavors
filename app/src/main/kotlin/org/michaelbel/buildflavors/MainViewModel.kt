@@ -1,5 +1,6 @@
 package org.michaelbel.buildflavors
 
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,11 +25,12 @@ class MainViewModel @Inject constructor(
             initialValue = ""
         )
 
-    fun reportAnalyticsEvent(count: Int) {
+    private var count: Int = 0
+
+    fun reportAnalyticsEvent() {
+        count++
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                appInteractor.reportAnalytics("ButtonClicked", mapOf("clicks" to count))
-            }
+            appInteractor.reportAnalytics("ButtonClicked", bundleOf("count" to count))
         }
     }
 }

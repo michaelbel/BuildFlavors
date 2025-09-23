@@ -1,0 +1,16 @@
+{
+  "app_id": "123456789",
+  "app_name": "BuildFlavors",
+  "package_name": "org.michaelbel.buildflavors",
+  "client": {
+    "cp_id": "0000000000000000000",
+    "product_id": "0000000000000000000",
+    "client_id": "12345678901234567890123456789012",
+    "client_secret": "FAKE_CLIENT_SECRET",
+    "api_key": "FAKE_API_KEY"
+  },
+  "agcgw": { "url": "connect-dre.dbankcloud.cn", "backurl": "connect-dre.dbankcloud.cn" },
+  "service": { "analytics": { "enable": true } },
+  "region": "EU",
+  "configuration_version": "1.0"
+}

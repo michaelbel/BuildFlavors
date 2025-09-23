@@ -10,12 +10,9 @@ kotlin {
 android {
     namespace = "org.michaelbel.platform.interactor"
     compileSdk = libs.versions.compile.sdk.get().toInt()
-
-    defaultConfig {
-        minSdk = libs.versions.min.sdk.get().toInt()
-    }
 }
 
 dependencies {
     api(libs.kotlinx.coroutines.android)
+    api(libs.google.hilt.android)
 }

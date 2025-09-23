@@ -11,6 +11,14 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven(url = "https://developer.huawei.com/repo/")
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "com.huawei.agconnect") {
+                useModule("com.huawei.agconnect:agcp:${requested.version}")
+            }
+        }
     }
 }
 dependencyResolutionManagement {
@@ -18,6 +26,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://developer.huawei.com/repo/")
     }
 }
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
