@@ -8,10 +8,11 @@ kotlin {
 }
 
 android {
-    namespace = "org.michaelbel.platform.foss"
+    namespace = "org.michaelbel.platform.gms"
     compileSdk = libs.versions.compile.sdk.get().toInt()
 }
 
 dependencies {
-    implementation(projects.platformServices.interactor)
+    implementation(projects.platform.interactor)
+    implementation(libs.google.firebase.analytics.ktx)
 }

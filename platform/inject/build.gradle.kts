@@ -32,10 +32,10 @@ val gmsImplementation by configurations
 val hmsImplementation by configurations
 val fossImplementation by configurations
 dependencies {
-    gmsImplementation(projects.platformServices.gms)
-    hmsImplementation(projects.platformServices.hms)
-    fossImplementation(projects.platformServices.foss)
-    api(projects.platformServices.interactor)
+    gmsImplementation(projects.platform.gms)
+    hmsImplementation(projects.platform.hms)
+    fossImplementation(projects.platform.foss)
+    api(projects.platform.interactor)
     implementation(libs.google.hilt.android)
     ksp(libs.google.hilt.compiler)
 }

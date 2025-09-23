@@ -33,9 +33,9 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "BuildFlavors"
 include(
     ":app",
-    ":platform-services:gms",
-    ":platform-services:hms",
-    ":platform-services:foss",
-    ":platform-services:inject",
-    ":platform-services:interactor"
+    ":platform:gms",
+    ":platform:hms",
+    ":platform:foss",
+    ":platform:inject",
+    ":platform:interactor"
 )

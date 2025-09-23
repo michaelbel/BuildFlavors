@@ -91,9 +91,9 @@ val gmsImplementation by configurations
 val hmsImplementation by configurations
 val fossImplementation by configurations
 dependencies {
-    gmsImplementation(projects.platformServices.inject)
-    hmsImplementation(projects.platformServices.inject)
-    fossImplementation(projects.platformServices.inject)
+    gmsImplementation(projects.platform.inject)
+    hmsImplementation(projects.platform.inject)
+    fossImplementation(projects.platform.inject)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.google.hilt.android)
