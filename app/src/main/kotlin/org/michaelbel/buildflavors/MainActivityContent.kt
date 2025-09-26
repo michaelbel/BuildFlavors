@@ -2,7 +2,6 @@
 
 package org.michaelbel.buildflavors
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,7 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,7 +30,6 @@ fun MainActivityContent(
     viewModel: MainViewModel = hiltViewModel()
 ) {
     val flavorName by viewModel.flavorNameFlow.collectAsStateWithLifecycle()
-    val context = LocalContext.current
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -53,16 +50,18 @@ fun MainActivityContent(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Тип: $flavorName",
+                text = flavorName,
                 fontSize = 34.sp,
                 fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                 lineHeight = 38.sp
             )
 
-            Spacer(modifier = Modifier.height(36.dp))
+            Spacer(
+                modifier = Modifier.height(36.dp)
+            )
 
             Button(
-                onClick = { viewModel.reportAnalyticsEvent() },
+                onClick = viewModel::reportAnalyticsEvent,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp),
