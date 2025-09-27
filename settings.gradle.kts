@@ -11,7 +11,11 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
-        maven(url = "https://developer.huawei.com/repo/")
+        maven("https://developer.huawei.com/repo/") {
+            content {
+                includeGroupByRegex("com\\.huawei(\\..+)?")
+            }
+        }
     }
     resolutionStrategy {
         eachPlugin {
