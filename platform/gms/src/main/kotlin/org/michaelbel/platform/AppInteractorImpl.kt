@@ -13,7 +13,7 @@ class AppInteractorImpl @Inject constructor(
     @param:ApplicationContext private val context: Context
 ): AppInteractor {
 
-    override val flavorName: Flow<String> = flowOf("GOOGLE")
+    override val flavorName: Flow<String> = flowOf("Google")
 
     override suspend fun reportAnalytics(name: String, params: Bundle) {
         val analytics = FirebaseAnalytics.getInstance(context)
