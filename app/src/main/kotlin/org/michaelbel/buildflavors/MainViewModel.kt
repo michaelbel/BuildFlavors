@@ -28,8 +28,8 @@ class MainViewModel @Inject constructor(
     private var count: Int = 0
 
     fun reportAnalyticsEvent() {
-        count++
         viewModelScope.launch {
+            count++
             appInteractor.reportAnalytics("ButtonClicked", bundleOf("count" to count))
         }
     }
