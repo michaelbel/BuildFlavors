@@ -8,7 +8,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.michaelbel.platform.interactor"
+    namespace = "org.michaelbel.platform.common"
     compileSdk = libs.versions.compile.sdk.get().toInt()
 }
 
