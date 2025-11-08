@@ -7,5 +7,5 @@ interface AppInteractor {
 
     val flavorName: Flow<String>
 
-    suspend fun reportAnalytics(name: String, params: Bundle)
+    suspend fun reportAnalyticsEvent(name: String, params: Bundle)
 }

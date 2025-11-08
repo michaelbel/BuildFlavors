@@ -4,12 +4,10 @@ import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.michaelbel.platform.AppInteractor
 import javax.inject.Inject
 
@@ -30,7 +28,7 @@ class MainViewModel @Inject constructor(
     fun reportAnalyticsEvent() {
         viewModelScope.launch {
             count++
-            appInteractor.reportAnalytics("ButtonClicked", bundleOf("count" to count))
+            appInteractor.reportAnalyticsEvent("ButtonClicked", bundleOf("count" to count))
         }
     }
 }

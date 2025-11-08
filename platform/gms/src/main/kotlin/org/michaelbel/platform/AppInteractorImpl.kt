@@ -15,7 +15,7 @@ class AppInteractorImpl @Inject constructor(
 
     override val flavorName: Flow<String> = flowOf("Google")
 
-    override suspend fun reportAnalytics(name: String, params: Bundle) {
+    override suspend fun reportAnalyticsEvent(name: String, params: Bundle) {
         val analytics = FirebaseAnalytics.getInstance(context)
         analytics.logEvent(name, params)
 

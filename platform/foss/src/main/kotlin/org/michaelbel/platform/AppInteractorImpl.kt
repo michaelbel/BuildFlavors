@@ -14,7 +14,7 @@ class AppInteractorImpl @Inject constructor(
 
     override val flavorName: Flow<String> = flowOf("FOSS")
 
-    override suspend fun reportAnalytics(name: String, params: Bundle) {
+    override suspend fun reportAnalyticsEvent(name: String, params: Bundle) {
         Toast.makeText(context, "Не собирается", Toast.LENGTH_SHORT).show()
     }
 }
