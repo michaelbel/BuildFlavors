@@ -78,9 +78,14 @@ jobs:
 
       - name: expose apk path
         run: |
-          echo "APK_PATH=$(find app/build/outputs/apk -name '*.apk' -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -d' ' -f2)" >> $GITHUB_ENV
+          GMS_APK_PATH=$(find app/build/outputs/apk -type f -path "*/gms/*" -name "*.apk" -printf '%T@ %p\n' | sort -n | tail -1 | cut -d' ' -f2)
+          HMS_APK_PATH=$(find app/build/outputs/apk -type f -path "*/hms/*" -name "*.apk" -printf '%T@ %p\n' | sort -n | tail -1 | cut -d' ' -f2)
+          FOSS_APK_PATH=$(find app/build/outputs/apk -type f -path "*/foss/*" -name "*.apk" -printf '%T@ %p\n' | sort -n | tail -1 | cut -d' ' -f2)
+          echo "GMS_APK_PATH=$GMS_APK_PATH" >> $GITHUB_ENV
+          echo "HMS_APK_PATH=$HMS_APK_PATH" >> $GITHUB_ENV
+          echo "FOSS_APK_PATH=$FOSS_APK_PATH" >> $GITHUB_ENV
 
-      - name: telegram notify
+      - name: telegram notify gms
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -93,7 +98,43 @@ jobs:
         run: |
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument" \
             -F chat_id="${CHAT_ID}" \
-            -F document="@${{ env.APK_PATH }}" \
+            -F document="@${{ env.GMS_APK_PATH }}" \
+            -F caption="${{ env.MESSAGE }}" \
+            -F message_thread_id="${THREAD_ID}" \
+            -F parse_mode="Markdown"    
+
+      - name: telegram notify hms
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          THREAD_ID: ${{ secrets.TELEGRAM_THREAD_ID }}
+          MESSAGE: |
+            ✅ *${{ env.VERSION_NAME }} (${{ env.VERSION_CODE }})*
+            *Repo:* [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }})
+            *Branch:* [${{ github.ref_name }}](${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }})
+            *Commit:* [${{ env.SHORT_SHA }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument" \
+            -F chat_id="${CHAT_ID}" \
+            -F document="@${{ env.HMS_APK_PATH }}" \
+            -F caption="${{ env.MESSAGE }}" \
+            -F message_thread_id="${THREAD_ID}" \
+            -F parse_mode="Markdown"
+
+      - name: telegram notify foss
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          THREAD_ID: ${{ secrets.TELEGRAM_THREAD_ID }}
+          MESSAGE: |
+            ✅ *${{ env.VERSION_NAME }} (${{ env.VERSION_CODE }})*
+            *Repo:* [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }})
+            *Branch:* [${{ github.ref_name }}](${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }})
+            *Commit:* [${{ env.SHORT_SHA }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument" \
+            -F chat_id="${CHAT_ID}" \
+            -F document="@${{ env.FOSS_APK_PATH }}" \
             -F caption="${{ env.MESSAGE }}" \
             -F message_thread_id="${THREAD_ID}" \
             -F parse_mode="Markdown"
