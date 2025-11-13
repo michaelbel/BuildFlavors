@@ -3,7 +3,7 @@
 </div>
 
 [![](https://img.shields.io/badge/Пост_в_Telegram-24A1DE?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/foundout)
-[![](https://img.shields.io/badge/Пост_на_Boosty-F15F2C?style=for-the-badge&logo=boosty&logoColor=F6F6F6)](https://boosty.to/michaelbel)
+[![](https://img.shields.io/badge/Пост_на_Boosty-F15F2C?style=for-the-badge&logo=boosty&logoColor=F6F6F6)](https://boosty.to/michaelbel/posts/b100d648-e7f1-4d0d-b30a-37f7777b277f)
 [![](https://img.shields.io/badge/Видео_на_YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@michaelbely)
 
 
@@ -22,5 +22,3 @@ BuildFlavors
 В приложении задаются три flavors: gms, hms и foss. implementation-конфигурации гарантируют, что в сборку попадет только нужный код. Для плагинов добавлены переменные, вынесенные в buildSrc, чтобы подключать их условно.
 
 Результат – три полностью автономных APK: один использует сервисы Google, другой – Huawei, а третий подходит для F-Droid и устройств без проприетарных SDK. Такой подход даёт гибкость и минимум дублирования, а главное – позволяет поддерживать все экосистемы Android-устройств из одной кодовой базы.
-
-<img src=".github/app.gif" alt="App Video" width="33%">
