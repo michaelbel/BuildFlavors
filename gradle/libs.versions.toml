@@ -3,11 +3,11 @@ min-sdk = "31"
 compile-sdk = "36"
 target-sdk = "36"
 jdk = "21"
-agp = "8.13.2"
-kotlin = "2.2.21"
+agp = "9.0.0"
+kotlin = "2.3.0"
 kotlinx-coroutines = "1.10.2"
-google-hilt = "2.57.2"
-google-ksp = "2.3.3"
+google-hilt = "2.59"
+google-ksp = "2.3.4"
 google-material = "1.13.0"
 androidx-activity = "1.12.2"
 androidx-compose-material3 = "1.4.0"
@@ -33,7 +33,6 @@ huawei-hianalytics = { module = "com.huawei.hms:hianalytics", version.ref = "hua
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 google-hilt = { id = "com.google.dagger.hilt.android", version.ref = "google-hilt" }
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "google-ksp" }
