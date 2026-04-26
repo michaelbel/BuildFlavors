@@ -64,7 +64,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: assemble debug artifact
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug --stacktrace
 
       - name: upload artifacts to outputs
         uses: actions/upload-artifact@v6
