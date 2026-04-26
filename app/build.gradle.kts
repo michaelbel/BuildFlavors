@@ -59,6 +59,8 @@ android {
 
     buildTypes {
         debug {
+            isMinifyEnabled = true
+            isShrinkResources = true
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -99,6 +101,7 @@ dependencies {
     ksp(libs.google.hilt.compiler)
     implementation(libs.google.material)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.material3)
 }
 
